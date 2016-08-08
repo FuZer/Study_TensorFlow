@@ -45,4 +45,4 @@ with tf.Session() as sess:
     for i in range(100):
         sess.run(train_op)
         result = sess.run(tf.arg_max(logits, 1))
-        print("%r, %r" % (result, [char_rdic[t] for t in result]))
+        print("%d, %g, %r, %r" % (i, cost.eval(), result, zip([char_rdic[t] for t in result], loss.eval())))
